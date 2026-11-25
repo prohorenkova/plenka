@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#e3eff0">
+  <meta name="description" content="ПленкаКИНО — независимый гид по кинотеатрам Санкт-Петербурга. Выбирай кинотеатр, сеанс и места.">
+
+  <title>ПленкаКИНО</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Onest:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header class="topbar">
+
+    <a class="brand" href="#" aria-label="ПленкаКИНО — главная">
+      <div class="logo-icon">
+        <img src="images/plenka.svg" alt="ПленкаКИНО">
+      </div>
+
+      <span class="brand-title">
+        <span class="logo-vinyl">пленка</span>
+        <span class="logo-onest">КИНО</span>
+      </span>
+    </a>
+
+    <nav aria-label="Основная навигация">
+      <a href="#cinemas">Кинотеатры</a>
+      <a href="#booking">Бронирование</a>
+      <a href="#my-bookings">Мои билеты</a>
+    </nav>
+
+    <a class="city-pill" href="#cinemas">
+      <span class="live-dot"></span>
+      SPB / 59°56'N
+    </a>
+
+  </header>
+
+
+  <main>
+
+    <!-- =====================================
+         HERO / POSTER
+    ====================================== -->
+
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          <span></span>
+          INDEPENDENT CINEMA GUIDE / 2026
+        </p>
+
+        <h1>
+          <span class="logo-vinyl">пленка</span><br>
+          <em>КИНО</em>
+        </h1>
+
+        <p class="hero-text">
+          Городские кинотеатры, независимые истории
+          и большие экраны.
+
+          Выбирай место, находи свой сеанс
+          и становись частью кинематографа Петербурга.
+        </p>
+
+        <a class="hero-button" href="#cinemas">
+          Выбрать кинотеатр
+          <span>↘</span>
+        </a>
+
+      </div>
+
+
+      
+<div class="hero-art" aria-label="Кинематографическая композиция">
+
+  <span class="art-number">FRAME 001 / 035 MM</span>
+
+  <div class="film-photo">
+
+    <div class="photo-grain"></div>
+
+    <div class="photo-caption">
+      NO. 001 — SPB CINEMA ARCHIVE
+    </div>
+
+    <div class="photo-word">
+      CINEMA
+    </div>
+
+    <div class="photo-bottom">
+      <span>24 FPS</span>
+      <span>ANALOG / DIGITAL</span>
+    </div>
+
+  </div>
+
+  <div class="hero-stars" aria-hidden="true">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+
+  <span class="art-caption">
+    EVERY FRAME TELLS A STORY
+  </span>
+
+  <span class="art-side-note">
+    INDEPENDENT<br>CINEMA<br>ST. PETERSBURG
+  </span>
+
+</div>
+
+
+
+      <div class="hero-bottom">
+        <span>01 — 08 / CINEMA LOCATIONS</span>
+        <span>SELECT / BOOK / WATCH</span>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CINEMAS / CITY MAP
+    ====================================== -->
+
+    <section class="section" id="cinemas">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow dark">
+            <span></span>
+            FIND YOUR SCREEN / 01
+          </p>
+
+          <h2>
+            Кинотеатры<br>
+            <em>Петербурга</em>
+          </h2>
+
+        </div>
+
+        <p class="section-note">
+          08 площадок города<br>
+          01 точка твоего выбора
+        </p>
+
+      </div>
+
+
+      <!-- FILTERS -->
+
+      <div class="filter-bar">
+
+        <label class="filter-control">
+
+          <span>01 / РАЙОН</span>
+
+          <select id="district-filter">
+            <option value="all">Все районы</option>
+          </select>
+
+        </label>
+
+
+        <label class="filter-control price-control">
+
+          <span>02 / ЦЕНА БИЛЕТА ДО</span>
+
+          <output id="price-output">1 000 ₽</output>
+
+          <input
+            id="price-filter"
+            type="range"
+            min="300"
+            max="1000"
+            step="50"
+            value="1000"
+          >
+
+        </label>
+
+
+        <button
+          class="text-button"
+          id="reset-filters"
+          type="button"
+        >
+          Сбросить фильтры ↺
+        </button>
+
+
+        <span class="result-count" id="result-count">
+          8 кинотеатров
+        </span>
+
+      </div>
+
+
+      <!-- MAP + CINEMA LIST -->
+
+      <div class="explorer-grid">
+
+
+        <!-- CITY MAP -->
+
+        <div class="city-map-wrap">
+
+          <div class="map-topline">
+
+            <span>
+              SPB / CITY MAP
+            </span>
+
+            <span class="map-live">
+              <i></i>
+              08 LOCATIONS
+            </span>
+
+          </div>
+
+
+          
+          <div
+            class="city-map"
+            id="city-map"
+            aria-label="Карта кинотеатров Санкт-Петербурга"
+          >
+            <!-- Фоновое изображение карты -->
+            <img
+              class="map-background"
+              src="images/maps.png"
+              alt="Стилизованная карта Санкт-Петербурга"
+            >
+
+            <!-- Метки создаются JavaScript -->
+            <div id="map-pins"></div>
+
+            <!-- Легенда -->
+            <div class="map-legend">
+              <span>
+                <i class="legend-free"></i>
+                Доступен
+              </span>
+
+              <span>
+                <i class="legend-selected"></i>
+                Выбран
+              </span>
+            </div>
+          </div>
+
+
+
+          <p class="map-disclaimer">
+            * Условная схема расположения кинотеатров.
+            Не является навигационной картой.
+          </p>
+
+        </div>
+
+
+        <!-- CINEMA LIST -->
+
+        <div class="cinema-list-panel">
+
+          <div class="list-heading">
+
+            <span>
+              CINEMA INDEX / 08
+            </span>
+
+            <span id="list-count">
+              08
+            </span>
+
+          </div>
+
+
+          <div
+            id="cinema-list"
+            class="cinema-list"
+          ></div>
+
+
+          <div
+            class="empty-state"
+            id="empty-state"
+            hidden
+          >
+            По этим параметрам ничего не найдено.
+            <br>
+            Попробуй изменить фильтры.
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         BOOKING / CINEMA HALL
+    ====================================== -->
+
+    <section class="booking-section" id="booking">
+
+      <div class="section-heading booking-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            <span></span>
+            SELECT YOUR SEAT / 02
+          </p>
+
+          <h2>
+            Твой следующий<br>
+            <em>сеанс</em>
+          </h2>
+
+        </div>
+
+
+        <p class="section-note light-note">
+          Выбирай фильм,<br>
+          дату и свободные места.
+        </p>
+
+      </div>
+
+
+      <!-- EMPTY BOOKING -->
+
+      <div
+        id="booking-empty"
+        class="booking-empty"
+      >
+
+        <span class="empty-ticket">
+          ▱
+        </span>
+
+        <h3>
+          Сначала выбери кинотеатр
+        </h3>
+
+        <p>
+          Нажми на точку на карте или карточку
+          в списке выше — здесь появится схема кинозала.
+        </p>
+
+      </div>
+
+
+
+      <!-- BOOKING CONTENT -->
+
+      <div
+        id="booking-content"
+        class="booking-layout"
+        hidden
+      >
+
+
+        <!-- SEAT PANEL -->
+
+        <div class="seat-panel">
+
+
+          <div class="selected-cinema-line">
+
+            <div>
+
+              <span class="eyebrow">
+                SELECTED CINEMA / 01
+              </span>
+
+              <h3 id="selected-cinema-name"></h3>
+
+              <p id="selected-cinema-address"></p>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="change-cinema"
+              id="change-cinema"
+            >
+              Изменить ↗
+            </button>
+
+          </div>
+
+
+
+          <!-- SESSION CONTROLS -->
+
+          <div class="session-controls">
+
+            <label>
+              ФИЛЬМ
+              <select id="movie-select"></select>
+            </label>
+
+            <label>
+              СЕАНС
+              <select id="time-select"></select>
+            </label>
+
+            <label>
+              ДАТА
+              <input
+                id="show-date"
+                type="date"
+              >
+            </label>
+
+          </div>
+
+
+
+          <!-- CINEMA SCREEN -->
+
+          <div class="screen-label">
+
+            <span></span>
+
+            ЭКРАН
+
+            <span></span>
+
+          </div>
+
+
+
+          <!-- SEAT GRID -->
+
+          <div
+            class="seat-grid"
+            id="seat-grid"
+            aria-label="Схема мест в кинозале"
+          ></div>
+
+
+
+          <!-- SEAT LEGEND -->
+
+          <div class="seat-legend">
+
+            <span>
+              <i class="seat-free"></i>
+              Свободно
+            </span>
+
+            <span>
+              <i class="seat-picked"></i>
+              Выбрано
+            </span>
+
+            <span>
+              <i class="seat-busy"></i>
+              Занято
+            </span>
+
+          </div>
+
+
+          <p class="seat-hint">
+            24 SEATS / SELECT ONE OR MORE
+          </p>
+
+        </div>
+
+
+
+        <!-- ORDER CARD -->
+
+        <aside class="order-card">
+
+          <p class="eyebrow dark">
+            <span></span>
+            BOOKING DETAILS / 03
+          </p>
+
+
+          <h3>
+            Твои билеты
+          </h3>
+
+
+          <div
+            class="order-movie"
+            id="order-movie"
+          >
+            Фильм не выбран
+          </div>
+
+
+          <div class="order-line">
+
+            <span>Дата и время</span>
+
+            <b id="order-datetime">
+              —
+            </b>
+
+          </div>
+
+
+          <div class="order-line">
+
+            <span>Места</span>
+
+            <b id="order-seats">
+              Не выбраны
+            </b>
+
+          </div>
+
+
+          <div class="order-line">
+
+            <span>Билетов</span>
+
+            <b id="order-count">
+              0
+            </b>
+
+          </div>
+
+
+          <div class="order-total">
+
+            <span>
+              ИТОГО
+            </span>
+
+            <strong id="order-total">
+              0 ₽
+            </strong>
+
+          </div>
+
+
+
+          <!-- BOOKING FORM -->
+
+          <form
+            id="booking-form"
+            novalidate
+          >
+
+            <label
+              class="form-label"
+              for="customer-name"
+            >
+              ТВОЁ ИМЯ
+            </label>
+
+            <input
+              id="customer-name"
+              name="name"
+              type="text"
+              maxlength="50"
+              placeholder="Как к тебе обращаться?"
+              autocomplete="name"
+              required
+            >
+
+
+            <label
+              class="form-label"
+              for="customer-email"
+            >
+              ЭЛЕКТРОННАЯ ПОЧТА
+            </label>
+
+            <input
+              id="customer-email"
+              name="email"
+              type="email"
+              maxlength="100"
+              placeholder="name@example.com"
+              autocomplete="email"
+              required
+            >
+
+
+            <p
+              class="form-error"
+              id="form-error"
+              role="alert"
+            ></p>
+
+
+            <button
+              class="confirm-button"
+              type="submit"
+            >
+              Забронировать места
+              <span>↗</span>
+            </button>
+
+          </form>
+
+
+          <p class="demo-note">
+            Учебное демо: реальные билеты и оплата
+            не оформляются.
+          </p>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         MY BOOKINGS / TICKETS
+    ====================================== -->
+
+    <section
+      class="my-bookings-section"
+      id="my-bookings"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow dark">
+            <span></span>
+            YOUR FILM ARCHIVE / 03
+          </p>
+
+          <h2>
+            Мои <em>билеты</em>
+          </h2>
+
+        </div>
+
+
+        <span
+          class="booking-counter"
+          id="booking-counter"
+        >
+          0 броней
+        </span>
+
+      </div>
+
+
+
+      <!-- BOOKING CARDS -->
+
+      <div
+        id="bookings-list"
+        class="bookings-list"
+      ></div>
+
+
+      <!-- EMPTY STATE -->
+
+      <div
+        id="bookings-empty"
+        class="my-empty"
+      >
+        Здесь появятся твои бронирования.
+
+        <br>
+
+        Выбери кинотеатр и забронируй места.
+      </div>
+
+
+      <!-- RESET DEMO -->
+
+      <button
+        class="reset-demo"
+        id="reset-demo"
+        type="button"
+      >
+        Сбросить демо-данные
+      </button>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer>
+
+    <a
+      class="brand footer-brand"
+      href="#"
+      aria-label="ПленкаКИНО — наверх"
+    >
+
+      <div class="logo-icon">
+      <img src="images/plenka2.svg" alt="ПленкаКИНО">
+      </div>
+
+      <span>
+        ПЛЕНКА<span class="brand-accent">КИНО</span>
+      </span>
+
+    </a>
+
+
+    <span>
+      INDEPENDENT CINEMA GUIDE / ST. PETERSBURG
+    </span>
+
+
+    <span>
+      © 2026
+    </span>
+
+  </footer>
+
+
+
+  <!-- =====================================
+       TOAST NOTIFICATIONS
+  ====================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+</body>
+</html>
