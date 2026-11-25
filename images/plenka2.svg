@@ -1,0 +1,16 @@
+<svg width="134" height="134" viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_g_1752_25)">
+<path d="M121 3C126.523 3 131 7.47715 131 13V121C131 126.523 126.523 131 121 131H13C7.47715 131 3 126.523 3 121V13C3 7.47715 7.47715 3 13 3H121ZM18 100C16.3431 100 15 101.343 15 103V118C15 119.657 16.3431 121 18 121H33C34.6569 121 36 119.657 36 118V103C36 101.343 34.6569 100 33 100H18ZM59 100C57.3431 100 56 101.343 56 103V118C56 119.657 57.3431 121 59 121H74C75.6569 121 77 119.657 77 118V103C77 101.343 75.6569 100 74 100H59ZM100 100C98.3431 100 97 101.343 97 103V118C97 119.657 98.3431 121 100 121H115C116.657 121 118 119.657 118 118V103C118 101.343 116.657 100 115 100H100ZM18 14C16.3431 14 15 15.3431 15 17V32C15 33.6569 16.3431 35 18 35H33C34.6569 35 36 33.6569 36 32V17C36 15.3431 34.6569 14 33 14H18ZM59 14C57.3431 14 56 15.3431 56 17V32C56 33.6569 57.3431 35 59 35H74C75.6569 35 77 33.6569 77 32V17C77 15.3431 75.6569 14 74 14H59ZM100 14C98.3431 14 97 15.3431 97 17V32C97 33.6569 98.3431 35 100 35H115C116.657 35 118 33.6569 118 32V17C118 15.3431 116.657 14 115 14H100Z" fill="#789DA0"/>
+</g>
+<defs>
+<filter id="filter0_g_1752_25" x="0" y="0" width="134" height="134" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.99900001287460327 0.99900001287460327" numOctaves="3" seed="4450" />
+<feDisplacementMap in="shape" scale="6" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_1752_25">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>
